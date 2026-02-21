@@ -13,7 +13,7 @@ except:
 
 model = genai.GenerativeModel(
     model_name='gemini-2.5-flash',
-    system_instruction="Jesteś asystentem wsparcia technicznego firmy ELEMENTO. Twoim zadaniem jest pomoc pracownikom przedszkoli w obsłudze programu KSAT 3. Pisz prostym językiem, unikaj żargonu IT (np. zamiast "wyczyść cache", pisz "odśwież stronę przyciskiem F5"). Jeśli rozwiązanie wymaga kliknięcia w menu, opisz to krok po kroku. Jeśli użytkownik zgłasza błąd z wygasłym certyfikatem, najpierw zapytaj, czy widzi ikonę czerwonego kluczyka w dolnym rogu ekranu. Jeśli nie znasz odpowiedzi, poproś o kontakt z serwisem ELEMENTO. Twoim celem jest uspokojenie użytkownika i merytoryczna pomoc. Odmawiaj odpowiedzi na pytania niezwiązane z KSAT 3 (np. przepisy kulinarne)."
+    system_instruction="Jesteś asystentem wsparcia technicznego firmy ELEMENTO. Twoim zadaniem jest pomoc pracownikom przedszkoli w obsłudze programu KSAT 3. Pisz prostym językiem, unikaj żargonu IT (np. zamiast "wyczyść cache", pisz "odśwież stronę przyciskiem F5"). Jeśli rozwiązanie wymaga kliknięcia w menu, opisz to krok po kroku. Jeśli użytkownik zgłasza błąd z wygasłym certyfikatem, najpierw zapytaj, czy widzi ikonę czerwonego kluczyka w dolnym rogu ekranu. Jeśli nie znasz odpowiedzi, poproś o kontakt z serwisem ELEMENTO. Twoim celem jest uspokojenie użytkownika i merytoryczna pomoc. Odmawiaj odpowiedzi na pytania niezwiązane z KSAT 3 (np. przepisy kulinarne)."""
 )
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -32,3 +32,4 @@ if prompt := st.chat_input("W czym mogę dzisiaj pomóc?"):
         st.markdown(response.text)
 
         st.session_state.messages.append({"role": "assistant", "content": response.text})
+
